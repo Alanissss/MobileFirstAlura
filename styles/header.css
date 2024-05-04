@@ -1,0 +1,185 @@
+.cabeçalho__menu-hamburguer {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("/imagens/Menu.svg");
+  }
+  
+  .cabeçalho {
+    background-color: var(--branco);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+  
+  .container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .container__imagem {
+    padding: 1rem;
+  }
+  
+  .container__botao {
+    display: none;
+  }
+  
+  .lista-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    padding: 0;
+    margin: 0;
+    width: 60vw;
+    z-index: 1000;
+  }
+  
+  .container__botao:checked ~ .lista-menu {
+    display: block;
+  }
+  
+  .lista-menu__titulo,
+  .lista-menu__item {
+    padding: 1em;
+    background-color: var(--branco);
+  }
+  
+  .lista-menu__titulo {
+    color: var(--laranja);
+    font-weight: 700;
+  }
+  
+  .lista-menu__link {
+    background: var(--azul-degrade);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: uppercase;
+  }
+  
+  .container__titulo {
+    display: none;
+  }
+  
+  .opcoes {
+    display: none;
+  }
+  
+  .container__texto {
+    display: none;
+  }
+  
+  /*o tio procura outro elemento q tivesse a classe de rotulo dps do container__botao
+  
+    o sinal de mais procura algo q esta dentro desse elemento
+  */
+  .container__botao:checked ~ .container__rotulo > .cabeçalho__menu-hamburguer {
+    background-image: url("/imagens/Menu\ Aberto.svg");
+  }
+  
+  .container__botao:checked ~ .container__rotulo {
+    background: var(--azul-degrade);
+  }
+  
+  /*se o minimo da tela for.. , colocamos min qnd é mobile e max qnd é desktop*/
+  @media screen and (min-width: 1024px) {
+    .container__titulo,
+    .container__titulo--negrito {
+      font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
+      font-size: 30px;
+    }
+  
+    .container__titulo {
+      font-weight: 400;
+      display: block;
+    }
+  
+    .container__titulo--negrito {
+      font-weight: 700;
+    }
+  
+    .opcoes {
+      display: flex;
+      justify-content: space-between;
+      width: 40%;
+    }
+  
+    .opcoes__item {
+      padding: 0 1em;
+      text-transform: uppercase;
+    }
+  
+    .opcoes__link {
+      text-decoration: none;
+      color: black;
+    }
+  
+    .container__imagem-transparent {
+      display: none;
+    }
+  
+    .opcoes__botao:checked ~ .lista-menu {
+      display: block;
+      width: auto;
+    }
+  
+    .opcoes__botao {
+      display: none;
+    }
+  
+    .cabeçalho__menu-hamburguer {
+      display: none;
+    }
+  
+    .opcoes__botao:checked ~.opcoes__rotulo >  .opcoes_item {
+      background: var(--azul-degrade);
+      color: var(--branco);
+    }
+  
+    .opcoes_item {
+      padding: 2em 1em;
+    }
+  
+    .lista-menu__item:hover {
+      background: var(--azul-degrade);
+  
+    }
+  
+    .lista-menu__item:hover > .lista-menu__link {
+      -webkit-text-fill-color: var(--branco);
+      text-decoration: none;
+    }
+  }
+  
+  @media screen and (min-width: 1321px) {
+    .cabeçalho__menu-hamburguer {
+      display: none;
+    }
+  
+    .container__link {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: black;
+    }
+  
+    .cabeçalho {
+      padding: 0 2em;
+    }
+  
+    .opcoes {
+      margin-right: auto;
+      justify-content: center;
+      gap: 20px;
+    }
+  
+    .container__texto {
+      display: block;
+    }
+  }
+  
